@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!--  CSS -->
+    <link href="css/vista.css" rel="stylesheet">
+</head>
+
+<body>
+    
+<div id="chatbox">
+
+        <div id="friendslist">        
+            <div id="friends">
+           <div id="search">
+            <input type="text" id="searchfield" placeholder="Buscar contacto..." />
+        </div>
+         
+        <br><br><br>
+                <div class="friend primero">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                    <p>
+                        <strong>Mario Casanova</strong>
+                        <span>mirobadev@gmail.com</span>
+                    </p>
+                    <div class="status available"></div>
+                </div>
+                
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                    <p>
+                        <strong>Martin Linares</strong>
+                        <span>marjoseph@gmail.com</span>
+                    </p>
+                    <div class="status away"></div>
+                </div>
+                
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg" />
+                    <p>
+                        <strong>Tomas Kennedy</strong>
+                        <span>tomaskennedy@gmail.com</span>
+                    </p>
+                    <div class="status inactive"></div>
+                </div>
+    
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                    <p>
+                        <strong>Martin Linares</strong>
+                        <span>marjoseph@gmail.com</span>
+                    </p>
+                    <div class="status away"></div>
+                </div>
+    
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                    <p>
+                        <strong>Martin Linares</strong>
+                        <span>marjoseph@gmail.com</span>
+                    </p>
+                    <div class="status away"></div>
+                </div>
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                    <p>
+                        <strong>Martin Linares</strong>
+                        <span>marjoseph@gmail.com</span>
+                    </p>
+                    <div class="status away"></div>
+                </div>
+                
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg" />
+                    <p>
+                        <strong>Enrique	Sutton</strong>
+                        <span>enriquesutton@gmail.com</span>
+                    </p>
+                    <div class="status inactive"></div>
+                </div>
+                
+                <div class="friend">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/5_copy.jpg" />
+                    <p>
+                    <strong>	Darnell	Strickland</strong>
+                        <span>darnellstrickland@gmail.com</span>
+                    </p>
+                    <div class="status inactive"></div>
+                </div>
+            </div>                
+        </div>	
+        
+        <div id="chatview" class="p1">    	
+            <div id="profile">
+    
+                <div id="close">
+                    <div class="cy"></div>
+                    <div class="cx"></div>
+                </div>
+                
+                <p>Miro Badev</p>
+                <span>miro@badev@gmail.com</span>
+            </div>
+            <div id="chat-messages">
+                <label>Febrero 02</label>
+                
+                <div class="message">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                    <div class="bubble">
+                        Hola pulpin como estas
+                        <div class="corner"></div>
+                        <span>3 min</span>
+                    </div>
+                </div>
+                
+                <div class="message right">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                    <div class="bubble">
+                        Estoy bien gracias
+                        <div class="corner"></div>
+                        <span>1 min</span>
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                    <div class="bubble">
+                        claro que si campeon :V
+                        <div class="corner"></div>
+                        <span>ahora</span>
+                    </div>
+                </div>
+                
+                <div class="message right">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                    <div class="bubble">
+                        pudiste ver el tutorial
+                        <div class="corner"></div>
+                        <span>1 min</span>
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                    <div class="bubble">
+                        si, lo acabe todito :v
+                        <div class="corner"></div>
+                        <span>ahora</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div id="sendmessage">
+                <input type="text" value="Enviar mensaje..." />
+                <button id="send"></button>
+            </div>
+        
+        </div>        
+    </div>	    
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/vista.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+
+    <script src="js/socket-chat-jquery.js"></script>
+
+    <script src="js/socket-chat.js"></script>
+
+</body>
+
+</html>

@@ -10,8 +10,8 @@ io.on('connection', (client) => {
 
     client.on('entrarChat', async (data, callback) => {
 
-       //--- if (!data.nombre || !data.sala) {
-            if (!data.usuario || !data.sala) {
+        //--- if (!data.nombre || !data.sala) {
+        if (!data.usuario || !data.sala) {
             return callback({
                 error: true,
                 mensaje: 'El nombre/sala es necesario'
@@ -20,21 +20,23 @@ io.on('connection', (client) => {
 
         client.join(data.sala);
         usuarios.agregarPersona(client.id, data.usuario, data.sala);
-        
+
         // base de datos
         var user = await User.findById(data.usuario);
         var sala = await Sala.findById(data.sala);
-        var userSala = new UserSala({user:user._id,sala:sala._id});
+        var userSala = new UserSala({ user: user._id, sala: sala._id });
         await userSala.save();
 
-       
-        console.log('usuario',user);
-         client.broadcast.to(data.sala).emit('listaPersona', usuarios.getPersonasPorSala(data.sala));
-        // client.broadcast.to(data.sala).emit('listakPersona',await UserSala.find({sala:sala}).sort('_id').populate({path:'user'}).exec());
-      
-      //--  client.broadcast.to(data.sala).emit('crearMensaje', crearMensaje('Administrador', `${ data.nombre } se unió`));
-        client.broadcast.to(data.sala).emit('crearMensaje', crearMensaje('Administrador', `${ user.name } se unió`));
-        callback(usuarios.getPersonasPorSala(data.sala));
+        salas = await UserSala.find({ sala: sala._id }).sort('_id').populate({ path: 'user' }).exec()
+   
+
+        client.broadcast.to(data.sala).emit('listaPersona', salas);
+        //    client.broadcast.to(data.sala).emit('listaPersona', usuarios.getPersonasPorSala(data.sala));
+
+        //--  client.broadcast.to(data.sala).emit('crearMensaje', crearMensaje('Administrador', `${ data.nombre } se unió`));
+        client.broadcast.to(data.sala).emit('crearMensaje', crearMensaje('Administrador', `${user.name} se unió`));
+        // callback(usuarios.getPersonasPorSala(data.sala));
+        callback(salas);
     });
 
     client.on('crearMensaje', async (data, callback) => {
@@ -44,10 +46,10 @@ io.on('connection', (client) => {
 
         let msg = new Mensaje(
             {
-               user:user._id,
-               mensaje:data.mensaje
+                user: user._id,
+                mensaje: data.mensaje
             });
-        await msg.save(); 
+        await msg.save();
 
         //--let mensaje = crearMensaje(persona.nombre, data.mensaje);
         let mensaje = crearMensaje(user.name, data.mensaje);
@@ -59,7 +61,7 @@ io.on('connection', (client) => {
         let personaBorrada = usuarios.borrarPersona(client.id);
 
         //--client.broadcast.to(personaBorrada.sala).emit('crearMensaje', crearMensaje('Administrador', `${ personaBorrada.nombre } salió`));
-        client.broadcast.to(personaBorrada.sala).emit('crearMensaje', crearMensaje('Administrador', `${ personaBorrada.nombre } salió`));
+        client.broadcast.to(personaBorrada.sala).emit('crearMensaje', crearMensaje('Administrador', `${personaBorrada.nombre} salió`));
 
         client.broadcast.to(personaBorrada.sala).emit('listaPersona', usuarios.getPersonasPorSala(personaBorrada.sala));
     });

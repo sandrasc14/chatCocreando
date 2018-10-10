@@ -41,6 +41,11 @@ socket.on('listaPersona', function(personas) {
     renderizarUsuarios(personas);
 });
 
+socket.on('salas', function(salas) {
+    console.log("holi",salas);
+});
+
+
 // Mensajes privados
 socket.on('mensajePrivado', function(mensaje) {
 
