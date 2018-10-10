@@ -14,7 +14,7 @@ var divChatbox = $('#divChatbox');
 // Funciones para renderizar usuarios
 function renderizarUsuarios(personas) { // [{},{},{}]
 
-    console.log(personas);
+    console.log('usuarios',personas);
 
     var html = '';
 

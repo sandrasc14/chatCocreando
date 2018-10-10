@@ -7,14 +7,16 @@ if (!params.has('nombre') || !params.has('sala')) {
     throw new Error('El nombre y sala son necesarios');
 }
 
-var usuario = {
-    nombre: params.get('nombre'),
-    sala: params.get('sala')
+var usuarioSala = {
+    //--- nombre: params.get('nombre'),
+    usuario: params.get('nombre'),
+    //-- sala: params.get('sala')
+    sala: '5bbe12ad593b8c0bd9a805c1'
 };
 
 socket.on('connect', function() {
     console.log('Conectado al servidor');
-    socket.emit('entrarChat', usuario, function(resp) {
+    socket.emit('entrarChat', usuarioSala, function(resp) {
         // console.log('Usuarios conectados', resp);
         renderizarUsuarios(resp);
     });
